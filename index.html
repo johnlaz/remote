@@ -10,8 +10,7 @@
 :root{
   --bg:#0a0b0f; --surface:#12141c; --surface2:#1a1d28; --surface3:#22263a;
   --gold:#D4AF37; --gold-dim:#9a7e22; --gold-bg:rgba(212,175,55,.10);
-  --teal:#2dd4bf; --red:#E50914; --green:#1DB954;
-  --border:rgba(212,175,55,.14); --border2:rgba(255,255,255,.06);
+  --teal:#2dd4bf; --border:rgba(212,175,55,.14); --border2:rgba(255,255,255,.06);
   --text:#e8e9ee; --muted:#7a8095;
 }
 *{box-sizing:border-box;margin:0;padding:0;}
@@ -19,7 +18,7 @@ html{scroll-behavior:smooth;}
 body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;overflow-x:hidden;line-height:1.5;}
 ::selection{background:rgba(212,175,55,.25);}
 a{color:inherit;text-decoration:none;}
-.wrap{max-width:1180px;margin:0 auto;padding:0 28px;}
+.wrap{max-width:1120px;margin:0 auto;padding:0 24px;}
 em{font-style:italic;color:var(--gold);font-family:'Playfair Display',serif;font-weight:600;}
 
 .bg-glow{position:fixed;inset:0;z-index:-1;pointer-events:none;
@@ -28,119 +27,146 @@ em{font-style:italic;color:var(--gold);font-family:'Playfair Display',serif;font
     radial-gradient(ellipse 55% 40% at 100% 15%,rgba(45,212,191,.06) 0%,transparent 60%),
     var(--bg);}
 
-/* nav */
-header{position:sticky;top:0;z-index:50;backdrop-filter:blur(20px) saturate(160%);background:rgba(10,11,15,.72);border-bottom:1px solid var(--border2);}
-nav{display:flex;align-items:center;justify-content:space-between;padding:16px 28px;max-width:1180px;margin:0 auto;}
+/* ── nav ── */
+header{position:sticky;top:0;z-index:50;backdrop-filter:blur(20px) saturate(160%);background:rgba(10,11,15,.8);border-bottom:1px solid var(--border2);}
+nav{display:flex;align-items:center;justify-content:space-between;padding:14px 24px;max-width:1120px;margin:0 auto;}
 .brand{display:flex;align-items:center;gap:10px;font-family:'Playfair Display',serif;font-weight:700;font-size:17px;color:var(--gold);}
-.brand-mark{width:30px;height:30px;border-radius:9px;background:radial-gradient(120% 120% at 30% 20%,#2a2110,#0d0e12);border:1px solid rgba(212,175,55,.35);display:flex;align-items:center;justify-content:center;font-size:13px;flex:0 0 auto;}
-.brand-sub{font-family:'DM Mono',monospace;font-size:10px;color:var(--muted);font-weight:500;margin-left:8px;letter-spacing:.03em;}
+.brand-mark{width:32px;height:32px;border-radius:9px;background:radial-gradient(120% 120% at 30% 20%,#2a2110,#0d0e12);border:1px solid rgba(212,175,55,.35);display:flex;align-items:center;justify-content:center;font-size:14px;flex:0 0 auto;}
+.brand-sub{font-family:'DM Mono',monospace;font-size:10px;color:var(--muted);font-weight:500;letter-spacing:.05em;margin-left:4px;}
 .nav-links{display:flex;align-items:center;gap:24px;font-size:14px;color:var(--muted);}
-.nav-links a:hover{color:var(--text);}
-.nav-cta{background:var(--gold);color:#0a0800;padding:9px 18px;border-radius:10px;font-weight:700;font-size:13px;}
+.nav-links a:hover{color:var(--text);transition:color .15s;}
+.nav-cta{background:var(--gold);color:#0a0800;padding:9px 18px;border-radius:10px;font-weight:700;font-size:13px;transition:transform .15s,box-shadow .15s;}
 .nav-cta:hover{transform:translateY(-1px);box-shadow:0 6px 20px rgba(212,175,55,.25);}
 
-/* buttons */
-.btn-primary{display:inline-flex;align-items:center;gap:10px;background:var(--gold);color:#0a0800;padding:16px 28px;border-radius:14px;font-weight:700;font-size:15.5px;box-shadow:0 8px 28px rgba(212,175,55,.22);}
+/* ── buttons ── */
+.btn-primary{display:inline-flex;align-items:center;gap:10px;background:var(--gold);color:#0a0800;padding:15px 26px;border-radius:13px;font-weight:700;font-size:15px;box-shadow:0 8px 28px rgba(212,175,55,.22);transition:transform .18s,box-shadow .18s;}
 .btn-primary:hover{transform:translateY(-2px);box-shadow:0 12px 34px rgba(212,175,55,.32);}
-.btn-primary svg,.btn-secondary-dl svg{width:18px;height:18px;}
-.btn-secondary-dl{display:inline-flex;align-items:center;gap:10px;background:var(--surface2);color:var(--text);padding:16px 28px;border-radius:14px;font-weight:700;font-size:15.5px;border:1px solid var(--border2);box-shadow:0 4px 16px rgba(0,0,0,.25);}
-.btn-secondary-dl:hover{transform:translateY(-2px);border-color:rgba(212,175,55,.3);}
+.btn-secondary-dl{display:inline-flex;align-items:center;gap:10px;background:var(--surface2);color:var(--text);padding:15px 26px;border-radius:13px;font-weight:700;font-size:15px;border:1px solid var(--border2);transition:transform .18s,border-color .18s;}
+.btn-secondary-dl:hover{transform:translateY(-2px);border-color:rgba(212,175,55,.28);}
+.btn-primary svg,.btn-secondary-dl svg{width:17px;height:17px;}
 
-/* hero */
-.hero{padding:88px 0 100px;}
-.hero-grid{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center;}
-.eyebrow{display:inline-flex;align-items:center;gap:8px;font-family:'DM Mono',monospace;font-size:11px;font-weight:500;color:var(--gold-dim);letter-spacing:.12em;text-transform:uppercase;padding:6px 13px;background:var(--gold-bg);border:1px solid var(--border);border-radius:20px;margin-bottom:22px;}
-.eyebrow-dot{width:6px;height:6px;border-radius:50%;background:var(--teal);box-shadow:0 0 6px var(--teal);animation:pulse 2.2s ease-in-out infinite;}
+/* ── hero ── */
+.hero{padding:72px 0 80px;}
+.hero-grid{display:grid;grid-template-columns:1fr 1.1fr;gap:64px;align-items:center;}
+.eyebrow{display:inline-flex;align-items:center;gap:8px;font-family:'DM Mono',monospace;font-size:11px;font-weight:500;color:var(--gold-dim);letter-spacing:.1em;text-transform:uppercase;padding:6px 13px;background:var(--gold-bg);border:1px solid var(--border);border-radius:20px;margin-bottom:22px;}
+.eyebrow-dot{width:6px;height:6px;border-radius:50%;background:var(--teal);box-shadow:0 0 7px var(--teal);animation:pulse 2.2s ease-in-out infinite;}
 @keyframes pulse{0%,100%{opacity:1;}50%{opacity:.4;}}
-h1{font-family:'Playfair Display',serif;font-weight:700;font-size:clamp(36px,5vw,56px);line-height:1.08;letter-spacing:-.01em;margin-bottom:22px;}
-.hero-sub{font-size:17px;color:var(--muted);line-height:1.65;max-width:480px;margin-bottom:34px;}
-.hero-actions{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:16px;}
+h1{font-family:'Playfair Display',serif;font-weight:700;font-size:clamp(34px,4.5vw,54px);line-height:1.08;letter-spacing:-.01em;margin-bottom:20px;}
+.hero-sub{font-size:16px;color:var(--muted);line-height:1.7;margin-bottom:32px;}
+.hero-actions{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:14px;}
 .hero-meta{font-size:12px;color:var(--muted);font-family:'DM Mono',monospace;}
 .hero-meta b{color:var(--text);}
-.trust-row{display:flex;gap:20px;margin-top:32px;flex-wrap:wrap;}
-.trust-item{display:flex;align-items:center;gap:8px;font-size:12.5px;color:var(--muted);}
-.trust-item svg{width:14px;height:14px;color:var(--teal);flex:0 0 auto;}
+.trust-row{display:flex;gap:20px;margin-top:28px;flex-wrap:wrap;}
+.trust-item{display:flex;align-items:center;gap:7px;font-size:12px;color:var(--muted);}
+.trust-item svg{width:13px;height:13px;color:var(--teal);flex:0 0 auto;}
 
-/* screenshots */
-.screenshots{display:flex;gap:16px;justify-content:center;align-items:flex-start;position:relative;}
-.screen-wrap{position:relative;}
-.screen-wrap img{border-radius:20px;border:1px solid rgba(255,255,255,.08);box-shadow:0 30px 70px rgba(0,0,0,.55);max-height:560px;width:auto;display:block;}
-.screen-label{position:absolute;bottom:-10px;left:50%;transform:translateX(-50%);background:var(--surface2);border:1px solid var(--border2);border-radius:20px;padding:5px 14px;font-family:'DM Mono',monospace;font-size:10px;color:var(--muted);white-space:nowrap;}
-.screen-wrap.primary img{max-height:580px;}
-.screen-wrap.secondary img{max-height:480px;margin-top:50px;}
-.screen-glow{position:absolute;width:300px;height:300px;border-radius:50%;background:radial-gradient(circle,rgba(212,175,55,.14),transparent 70%);filter:blur(8px);pointer-events:none;top:40%;left:50%;transform:translate(-50%,-50%);}
+/* ── dual phone mockup ── */
+.phones{position:relative;display:flex;justify-content:center;align-items:flex-start;gap:16px;padding:8px 0 32px;}
+.phone-outer{position:relative;}
+.phone-outer.main{z-index:2;}
+.phone-outer.secondary{z-index:1;margin-top:48px;}
+.phone-frame{
+  background:linear-gradient(160deg,#1c1d26,#0e0f14);
+  border-radius:32px;
+  padding:10px;
+  border:1px solid rgba(255,255,255,.10);
+  box-shadow:0 24px 60px rgba(0,0,0,.6), 0 0 0 1px rgba(255,255,255,.04) inset;
+}
+.phone-frame img{
+  display:block;
+  border-radius:24px;
+  width:240px;
+  height:auto;
+  max-height:460px;
+  object-fit:cover;
+  object-position:top;
+}
+.phone-outer.secondary .phone-frame img{width:210px;max-height:400px;}
+.phone-tab{
+  position:absolute;bottom:-14px;left:50%;transform:translateX(-50%);
+  background:var(--surface2);border:1px solid var(--border2);
+  border-radius:20px;padding:5px 13px;
+  font-family:'DM Mono',monospace;font-size:10px;color:var(--muted);
+  white-space:nowrap;backdrop-filter:blur(8px);
+}
+.phones-glow{
+  position:absolute;top:40%;left:50%;transform:translate(-50%,-50%);
+  width:320px;height:320px;border-radius:50%;
+  background:radial-gradient(circle,rgba(212,175,55,.12),transparent 70%);
+  filter:blur(12px);pointer-events:none;
+}
 
-/* sections */
-section{padding:80px 0;}
-.section-head{max-width:640px;margin-bottom:52px;}
-.section-eyebrow{font-family:'DM Mono',monospace;font-size:11px;color:var(--gold-dim);text-transform:uppercase;letter-spacing:.1em;margin-bottom:14px;}
-h2{font-family:'Playfair Display',serif;font-weight:700;font-size:clamp(26px,3.2vw,36px);line-height:1.18;margin-bottom:14px;}
-.section-sub{color:var(--muted);font-size:16px;line-height:1.65;}
+/* ── sections ── */
+section{padding:76px 0;}
 .border-top{border-top:1px solid var(--border2);}
+.section-head{margin-bottom:48px;}
+.section-head.centered{text-align:center;max-width:600px;margin:0 auto 48px;}
+.section-eyebrow{font-family:'DM Mono',monospace;font-size:11px;color:var(--gold-dim);text-transform:uppercase;letter-spacing:.1em;margin-bottom:14px;}
+h2{font-family:'Playfair Display',serif;font-weight:700;font-size:clamp(26px,3vw,36px);line-height:1.18;margin-bottom:12px;}
+.section-sub{color:var(--muted);font-size:15.5px;line-height:1.65;}
 
-/* product cards */
-.product-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;}
-.product-card{background:var(--surface);border:1px solid var(--border2);border-radius:22px;padding:36px;backdrop-filter:blur(20px);box-shadow:0 1px 0 rgba(255,255,255,.03) inset,0 12px 30px rgba(0,0,0,.2);transition:border-color .2s,transform .2s;}
-.product-card:hover{border-color:rgba(212,175,55,.28);transform:translateY(-3px);}
-.product-card.featured{border-color:rgba(212,175,55,.22);background:radial-gradient(ellipse 120% 80% at 0% 0%,rgba(212,175,55,.05),transparent 55%),var(--surface);}
-.product-badge{display:inline-flex;align-items:center;gap:7px;font-family:'DM Mono',monospace;font-size:10px;font-weight:600;letter-spacing:.08em;padding:5px 11px;border-radius:16px;margin-bottom:18px;}
+/* ── product cards ── */
+.product-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;}
+.product-card{background:var(--surface);border:1px solid var(--border2);border-radius:22px;padding:32px;transition:border-color .2s,transform .2s;}
+.product-card:hover{border-color:rgba(212,175,55,.25);transform:translateY(-3px);}
+.product-card.featured{border-color:rgba(212,175,55,.2);background:radial-gradient(ellipse 120% 80% at 0% 0%,rgba(212,175,55,.05),transparent 55%),var(--surface);}
+.product-badge{display:inline-flex;align-items:center;gap:7px;font-family:'DM Mono',monospace;font-size:10px;font-weight:600;letter-spacing:.07em;padding:4px 11px;border-radius:14px;margin-bottom:16px;}
 .badge-lmc{background:rgba(45,212,191,.12);color:var(--teal);border:1px solid rgba(45,212,191,.2);}
 .badge-mr{background:var(--gold-bg);color:var(--gold-dim);border:1px solid var(--border);}
-.product-card h3{font-family:'Playfair Display',serif;font-weight:700;font-size:24px;margin-bottom:10px;}
-.product-card p{color:var(--muted);font-size:14.5px;line-height:1.65;margin-bottom:24px;}
-.feature-list{list-style:none;display:flex;flex-direction:column;gap:9px;margin-bottom:28px;}
-.feature-list li{display:flex;align-items:flex-start;gap:10px;font-size:14px;color:var(--muted);}
+.product-card h3{font-family:'Playfair Display',serif;font-weight:700;font-size:22px;margin-bottom:9px;}
+.product-card > p{color:var(--muted);font-size:14px;line-height:1.65;margin-bottom:20px;}
+.feature-list{list-style:none;display:flex;flex-direction:column;gap:8px;margin-bottom:26px;}
+.feature-list li{display:flex;align-items:flex-start;gap:9px;font-size:13.5px;color:var(--muted);}
 .feature-list li::before{content:'›';color:var(--teal);font-weight:700;flex:0 0 auto;margin-top:1px;}
 .feature-list li b{color:var(--text);font-weight:600;}
 
-/* feature grid */
-.feat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;}
-.feat-card{background:var(--surface);border:1px solid var(--border2);border-radius:18px;padding:26px;transition:border-color .2s,transform .2s;}
-.feat-card:hover{border-color:rgba(212,175,55,.25);transform:translateY(-2px);}
-.feat-icon{width:42px;height:42px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:18px;margin-bottom:16px;}
-.feat-card h3{font-size:16px;font-weight:700;margin-bottom:8px;}
-.feat-card p{font-size:13.5px;color:var(--muted);line-height:1.6;}
+/* ── feature grid ── */
+.feat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;}
+.feat-card{background:var(--surface);border:1px solid var(--border2);border-radius:18px;padding:24px;transition:border-color .2s,transform .2s;}
+.feat-card:hover{border-color:rgba(212,175,55,.22);transform:translateY(-2px);}
+.feat-icon{width:40px;height:40px;border-radius:11px;display:flex;align-items:center;justify-content:center;font-size:17px;margin-bottom:14px;}
+.feat-card h3{font-size:15px;font-weight:700;margin-bottom:7px;}
+.feat-card p{font-size:13px;color:var(--muted);line-height:1.6;}
 .fi-tv{background:rgba(45,212,191,.12);}
+.fi-disc{background:rgba(99,102,241,.12);}
 .fi-sonos{background:rgba(29,185,84,.10);}
 .fi-lights{background:rgba(212,175,55,.10);}
 .fi-scene{background:rgba(139,92,246,.10);}
-.fi-kodi{background:rgba(43,95,191,.12);}
 .fi-pwa{background:rgba(229,9,20,.10);}
 
-/* setup steps */
-.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;}
-.step-num{font-family:'Playfair Display',serif;font-weight:700;font-size:15px;color:#0a0800;width:36px;height:36px;border-radius:10px;background:var(--gold);display:flex;align-items:center;justify-content:center;margin-bottom:18px;box-shadow:0 6px 18px rgba(212,175,55,.25);}
-.step h3{font-size:16px;font-weight:700;margin-bottom:8px;}
+/* ── setup ── */
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;}
+.step-num{font-family:'Playfair Display',serif;font-weight:700;font-size:14px;color:#0a0800;width:34px;height:34px;border-radius:10px;background:var(--gold);display:flex;align-items:center;justify-content:center;margin-bottom:16px;box-shadow:0 6px 16px rgba(212,175,55,.25);}
+.step h3{font-size:16px;font-weight:700;margin-bottom:7px;}
 .step p{color:var(--muted);font-size:13.5px;line-height:1.6;}
-.step code{font-family:'DM Mono',monospace;background:var(--surface2);padding:2px 7px;border-radius:5px;font-size:12px;color:var(--gold);}
+.step code{font-family:'DM Mono',monospace;background:var(--surface2);padding:2px 6px;border-radius:4px;font-size:11.5px;color:var(--gold);}
 
-/* cta */
-.cta-box{background:radial-gradient(ellipse 100% 100% at 50% 0%,rgba(212,175,55,.08),transparent 65%),var(--surface);border:1px solid var(--border);border-radius:28px;padding:64px 40px;text-align:center;}
+/* ── cta ── */
+.cta-box{background:radial-gradient(ellipse 100% 100% at 50% 0%,rgba(212,175,55,.08),transparent 60%),var(--surface);border:1px solid var(--border);border-radius:28px;padding:60px 36px;text-align:center;}
 .cta-box h2{margin-bottom:12px;}
-.cta-box .section-sub{max-width:480px;margin:0 auto 36px;}
-.cta-actions{display:flex;gap:16px;justify-content:center;flex-wrap:wrap;}
-.cta-note{margin-top:18px;font-size:12px;color:var(--muted);font-family:'DM Mono',monospace;}
+.cta-box .section-sub{max-width:460px;margin:0 auto 32px;}
+.cta-actions{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;}
+.cta-note{margin-top:16px;font-size:11.5px;color:var(--muted);font-family:'DM Mono',monospace;}
 
-/* footer */
-footer{border-top:1px solid var(--border2);padding:36px 0;}
-.footer-row{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px;}
-.footer-brand{display:flex;align-items:center;gap:9px;font-family:'DM Mono',monospace;font-size:12px;color:var(--muted);}
-.footer-links{display:flex;gap:24px;font-size:12.5px;color:var(--muted);}
+/* ── footer ── */
+footer{border-top:1px solid var(--border2);padding:32px 0;}
+.footer-row{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:14px;}
+.footer-brand{display:flex;align-items:center;gap:8px;font-family:'DM Mono',monospace;font-size:12px;color:var(--muted);}
+.footer-links{display:flex;gap:22px;font-size:12px;color:var(--muted);}
 .footer-links a:hover{color:var(--gold);}
 
-/* responsive */
-@media(max-width:900px){
+/* ── responsive ── */
+@media(max-width:920px){
   .hero-grid{grid-template-columns:1fr;gap:40px;}
-  .screenshots{order:-1;}
-  .screen-wrap.secondary{display:none;}
-  .screen-wrap.primary img{max-height:460px;}
+  .phones{order:-1;}
+  .phone-outer.secondary{display:none;}
+  .phone-frame img{width:200px;}
   .product-grid{grid-template-columns:1fr;}
   .feat-grid{grid-template-columns:1fr 1fr;}
-  .steps{grid-template-columns:1fr;gap:28px;}
+  .steps{grid-template-columns:1fr;gap:24px;}
   .nav-links{display:none;}
-  h1{font-size:34px;}
 }
-@media(max-width:600px){
+@media(max-width:580px){
   .feat-grid{grid-template-columns:1fr;}
   .cta-actions{flex-direction:column;align-items:center;}
 }
@@ -158,7 +184,7 @@ footer{border-top:1px solid var(--border2);padding:36px 0;}
       <span class="brand-sub">LAZLAB CREATIONS</span>
     </div>
     <div class="nav-links">
-      <a href="#what">What's Inside</a>
+      <a href="#what">Builds</a>
       <a href="#features">Features</a>
       <a href="#setup">Setup</a>
       <a href="#downloads" class="nav-cta">Download</a>
@@ -193,29 +219,33 @@ footer{border-top:1px solid var(--border2);padding:36px 0;}
         <div class="trust-row">
           <div class="trust-item">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 4 6v6c0 5.4 3.6 9 8 10 4.4-1 8-4.6 8-10V6z"/></svg>
-            Local network only — nothing leaves your house
+            Local network only — stays in your house
+          </div>
+          <div class="trust-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2"/><path d="M12 18h.01"/></svg>
+            Installable as a real PWA
           </div>
           <div class="trust-item">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
             Runs in the tray, starts with Windows
           </div>
-          <div class="trust-item">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2"/><path d="M12 18h.01"/></svg>
-            Installable PWA — add to your home screen
-          </div>
         </div>
       </div>
 
-      <!-- Dual screenshot -->
-      <div class="screenshots">
-        <div class="screen-glow"></div>
-        <div class="screen-wrap primary">
-          <img src="assets/screenshot-room.png" alt="LMC Remote — Room tab showing TCL TV controls, Sonos, and Lights" loading="lazy">
-          <div class="screen-label">Room tab</div>
+      <!-- Dual phone frames with embedded screenshots -->
+      <div class="phones">
+        <div class="phones-glow"></div>
+        <div class="phone-outer main">
+          <div class="phone-frame">
+            <img src="data:image/webp;base64,UklGRkonAABXRUJQVlA4ID4nAADwAgGdASqHAbwCPpVKoEylr6M4o1FpExASiWdu1RRTWIfPQprnEP+5dqvTQMX6jL0QZyXQ+cfu0VQvND8DyRHtv+r6sPEq9QHpu8yP8m/0n7Ve9T/xv2Z943+P9QD+9dRh6AH7aenf7O/+E/6vpe6pN8s/a/1febP8jKM/I9ZpOt/Nd9fxt1CPau8V615hHuFmN/e+av2b9gDys/7XhM/jP+b7AH6N9YP/g8h/7X6hvSm/eb2aAaQ+cFTss7pTcHSBK/qaO83spIFyMrrREjWWse8600nDRC3yKG7cLZvdfKJxfk3qByqgK1hlw8CbZVPdqRb2Jznaq1jIOV46b3QCuDwR9qTSYQt/dHjw9OzRGVZi/NO4j0NpUwHH+FZ0UcKpf7tmGxf+X4EHM99VBI+goQVKAHGS2zrYhhyp/30xcJnK2l4ibO9bWxFVaT2HwbmfkQ/rNWbEE4t2zdpWk0YdbEVV2QrIlV18Ty9g/fh9D4KRIn9jMAAOwGQ8wDeKNoMUtVITVCOOy03J8k1oN4G1By5p7hpubQs2jOYUbnYqJHqI8cY8FLzAV+xq7MJWufF203t+noCB12p3dQ1wiqeK15XqolWrtQFWE4fJSZALUpDeZRFRtjWK5NIDFed+RlUPgI5OQ2S/bz9CVJPteyPgW+ZDYY3CuLsoaTkFKVygUWYstFZ0kO7CjvUdYLBDGOD9LYIYxweOv7Q37sPaVbi5gKESafgjCuKkmnZ9RMinYwyxmeGRvqabdCbfdCT2ojhoyO9z3DHBgfBCozYn3AB3/S7qD6gASt4Db7qTZiNhrQhX6ZuHDQ2rn6I1P4u/9XJuukCtfHE1J84cNEh6DLuH57VHqQKkfyIlhbb50tZ2h4WCYdCdGJqr/sk5kwFOTVuQ6csNQJehZcPicu542i/RQWWLMPLh1ncjSYSJCI5pEfwCtyhu+xGx3Ysd0/pbZsvuR3McjgVRvHvdLjMswvUS/z/1/nWxxTumXsph/+xkIYjitTSZIS7wpplb91kltJQWyRY+CrNiyIvy7XH/EeNEMTWGk8WPu7LkvzzGql36phdOECnQtKr12oxihrOu/nVMZWmv/gz3vY4ew8hLski1Iy1Hu9ZF6R/JBbSrsma3d3TxB9McbgwIIdgBAg/i072LiyTSZtOs3/snPGjFg+uMfKTxOb2nMBp7Ovj0NgxmUpUiJyFEmQYUsi0+oL92H8kIUWhdC0rpXrhBHAUP99mqqiML/UL4gerw6yeEgxEm1mMbSGzq0cGsG8U6FRjkZHNeb8c+q3yQ2O2afMuumW80YO/c97OcFfPUyRRKFXLJiOMsZZItyI2PJuIH3fk59ZJ4kOsaNPaVJgBS2oR79kI5eQ0VDcnJqln+g3tNezYFiJFdPSZWXO3ENusEfuFTMGXwWcurI6Ir+6iIDY0aTUm825CexRoPxudPlJGrK29Ry1MrjgRuS1DzZ7vaJIsKXI3VtSXDg/ZIeFZrUDMHJbSEGlh2c+xbIYiPKMOJ2f+HeuVGMgAjaqlgmtDyKMrxaBcRc3XksL9R8RBLPGJ3LB5nlltBKGDfeZb9DCbmhuTWTAGThqdE1qbBv6LUkGSXZizxHigVo2y03lcLcvFQSe389CC1TJuuQeajg0/ptuQy75q6EEymQOmf/kliRdXcDJ6NE5HPS8CJO4dhOAySESts4aztaJhtU/n8bhbMOGKyG6wMSLVZt7lWIz527ggzU4CkaRm9mmd6aHUtykQktchpDIeXD3YeU3nk4du99hNf767wjag/8p26AlznSsyVkEtqP1yx4rZWPyzaelrPFVP34xwee1RU5iUH22yvprc/Z3P0M8YgrczceAXWZaix5wg9a3Xj2zHwQXQXS2/+CkLhnedDRuiVEiiHfSfqKzg+XLFLrD5vORt0Z/9VcBsyQvygMqR/wAqfThjJWU+flHr8X6+GyVAxALhV6aL2FhY6rbSw6M/J0wUmkxryDB2z4u4BmVdDupCtlTvKwjoeuUDOTwMwDlS8d8k4nN5HziFk2kEiRSJE6z5vuaGiEqmQMrDuafO7UjejKZWlOL7+2kYPzbsHAy33PTmpKzlsEMY0pe5LYioulgoNi5tMOoGMIZDV1DkFj3Gb/paQSi7PqBzhdA8V0MPr75hOjM5lSW0IJZOUX/dyxddv8JkcS/3x7ktiKq/Pb24rN+zlTkXcxSI0jqznrSoYjCey4BHUV+GIm9TcGRX57ksQJL0gv9ni9risbnDyA033NhdSLh5tQ7/zoxrvK93eJ5el5OvNEyoz2Vac1iXaSZ9IPHaE7WoMjx3SRzoqFtxdyOwOYTzBIj5vaTm4Ul4qdBEGyR3sN325MnTs3DyBjDhF4pDaXkaL7O9yFxFOYMl+hlAndVYzn4O+bXHZFgpcgaX/ZqmcRjjWLj4+LfsCtgtMJQ5P5CyDQH03dcwRczbRHBO6loNyM7r11btr+XVLQshK6m4CXA4sJeDHhYYyeTYZbI0mhijGbP1h2fW5t6zCii2w6ECmJm34MiBmgT+Tv9J6MZ3vj3JbESakxwkqu/QS+Tnroo4Kb5m5oVFVhOGrbsXqzzNVgPGCcT6b4bNeIub9q3tdaggBDbhyivEM5IN6f/S6bUcPLHmzrh0si6vlrn6u+VujGw6+t5kFsG0qQQygmT4yFyjatXAHK9aPRo+vCrrg3bCXugNN/LL0hlDxVX5iDWKLp903GStFr2O7QnR5/mIwu6NJYejTxnrlKRgQ9TmzNlLNiyF7NJ7IWQv1+OImWtrWxSQAAP70TWQXhtqQZ05gnRbr72lIM794Vr957i5B7BA14O2ViS6WqauhrFAVMk+XX0I7zReBPqmAkWm35ss21hm6zpUFJQVKrNyuEqge6ByUMyaMtLA8rZCHBRqMjai59n7sjWvbh28EFEwiZpgit8AHJRT/IcOCQWrff3OgCM7TxUC+LF9/rHDpBdkLAENWBdmfI3q032t3HlhhbQkQXtWwqO3hhx+FqE/ifH85ntaa9z4p2XE0352cu6+uRQVVxALZbea8apDl1eibbsL/J2uNhhgYHk/yiX1LrDHwlev48EV9nRys5bWiNyPROctiN3upWrdZxvUW452vLoutZPb2qKNRE7MuKyEpZbco9UcP8OBEqejm9GOepi/Ixnf1p9fw8gaYsW+HuWiTd19xoE5gOYXd3NjdniD5XXxCcYBSxeCvtQIy+P9Xb4d+Z4bkBbJPgeM3hY7OZSg8ujIfk4ohs0VJKMOIecsRM7QTfRQB4y2lS0wPKi5+Nq/w0rbP7EKDf1LPy59jAWJI9kyxJLL3R6NXBK/JPMqJrqRC6ffU0/uaX8SKzh2Lt7G3S8UzhCkOOoIqCI1Lbofvn5T7xc82JauykVfGHeSadUVkL7CCtu/LGVVdpcv6b8HEobV6WvywGtWndtah+oPya2JMBej0g17yVPrCjB1p1nTVwu1porBc4ghsmhToDXlLOekb3L8dwpiffIOIQp9fyc2okxBghAcYvTIY+JfjTMj0AFwrZ/G6dOLuI9Wz+Qc4GK63+ReayEkXZ8C4gd78Xh5/FQXz82PO3lT7FsB8DvKD5DamcnQJTkeRZc00vrDtuwATTz3koI/zRavMHq1Ozdsyw3KTN8O+p0fvAoTuWXNF+v16Q2mRZj7YDYx5r3uSf0BZfgAJPYoJFXVdnf7XsDJ6khjCTBkcjPBeRvmSqMcUJZjYcQACbAmGhk9Mc2uP7iwe2H83nTDg2NuFgUtEZFT6FZ5xQxTtu4eV09XVEiantLo9oOkpPurXWPBq2WdV2Tkwl6yvIGhPGgDuLw9DwBDZFMKasyBd0BOhrzDWu5z0ocj6pmg78noZAvK3MTlMFjSJPItThux2sFgmh7aNFi+WKgsaL3n3Ktcbc5E6Zyexyef0fQcfvGdrOHfEuv6+QoRExn+ce27koAH5w70sbS8uqPb4SKcY0gQJD2S0iSGmcoTF0VmE+5d1xJ36mGATnmkx8dII/XrbGdoklQTYU5S1pUHnbAB06W7nss/09nI7Zi5uMXRObnO0qaGWv5jxT259oD+ogurdFA5gyBE5Yrle92RHuNIBNjpsOykmHZzAthx3ewy1s5qHg2ql9wSWn01U5bQ11JG3qT1/RZZGDuqfVEI5HxitZPgWOcyH05PbIBYPnbzIg9sqXfxN3WO2hFk6lWyOgMNFLX0/oPFFs0sl/88wjdthx/i2BPl7+mLlf/3dRGBbTZ74zvZn7q+QC+EdOiclApdWaIw8+xn8qFyhJLMf8hnVyqfsM9HXY7xn4Hkrh1YPmQdUVW/spw6f3Db+mBeTwvKJ/Jkc2SREg3PEk8RgKf/UB0XFVIstyK801fFu51FKVHfMrow3gQiyOrQ/0x3rV3LO8zelaOhweLTb/hq8ifnhrLBwqeYzuLvMrGxNwGY0AMNXDoe77vTQ5JuNha+14BY36PG9cwJ2W/PMFDkaPKUJ2g63qEK5FaQ/HuJ1zlAk9RXijhvFias6zlOxCtGSqHSfU547uYPi/QkHOYF+8aA7+uUwlOdfuKUsbnocYASths+LlLVve0u8Do2Qb0bIiz5U/6cyZ67YvmWliOgjB7BEhMjGnSF7h6+JW7jN0opXUrYDDrvCSOkyl6gYTuQiykeoqDPnhtt8SlRt1cpwSiiZQ3ZoLK95o6ilJAy1ziwTi33Kk0XiYLB1YC07C+BUdkF6vgF6jJ6V/tPRyxPAOLHASnMTZ4SxyDWXUSKlaSLNsEy3KHJrpfwoWds18ch8GBcXpJdxEN1uxUiVfx/IuARArEEiQemDJOVXGD/0HDMYEeGm6//3X2Uen+Cgi1c/NUu2P5b8BkrLt4ObV0gtwoM6NS061YeuhYQWe0sT0fymQURfqhLxKouwMy6hb+OPN23g+8ogRLvM+juR4iPWHIQrO0kg/bL+craYyxi4gTWHU9zflW/Wm9uU0g0HNEdDSDZakdpbKQyrIdoGgl5IDVAI/WE/baEp2NtA/7uiM72A6WG/+tuW4KYCyK9nGdRxDYVIOuGygCHEJkl8r2PjLsw1DfMAcxljV5myERFVdaYQLtRLmd40m2dS56CxEqWWQiPIHIICJtn/oVUUbfjCflMBD4yvQpWl0Qte80djVBalggwsBpoUOUvL3uz7Bx62dUeY/anYuZQ/Nkbz3Md/KEjQzlQy8oJHC3omsHRxIim1GKYTLadmmTIyK4ynUyceNIAEBmIMDuMqQJcJpPn2W/1CK1m+NEJiPWA19LIg6filQLxtcAa31h8x0TDWb3TOAR4g5YYFF9FSXYBWqO7b4mL5dsNBaVq6LAdW+FadDLWZ2vO0Wy320B7XU/YNxKHQQKW29mguJt0atcXuF/ZFp3E7IRunmr8MNqzMlkRxuSwFSXQ643VZdgn8mjUstQA2KFb/YKkdt1THB7kTgWmQWc6e3vHbfHisfiUrgXmPb1cc/VoHBmuB/DnqlKPlOsUzqHNaPsKjE62plFeXU6wOc5P4tLxwWbJEoYGYzs4NYsJZyDiliO2otjLVfFlnUMNnP6+4V8gl6YXd1T1ydVaq7UJu7brMeqZqPuxj5YyC0x4DqbL0s9KdUBhkR4OoQ06/r9C8MgcY0V+tYdlBZPlELtClL9qyhQHADa8aQTzab3aB9mEzp5troDPDU7mvnFxL4beD1+3+1artM3fVaGLcWESBf4hfuUpi7x40Ei+x/XbCuc8O++34hsogGfFS85PDF68qZvTO2ywet2WrxN60mbKcrIGjUqhx4uNw7AM3AJuym58UlI8b8uZLPUqFrdKpEgm9YW9B0bno6pDL6hcVLTEBju2WpqCIYpX1mCUC+jjzjUiynAmU+4jE4AJ9454XtkXxwNWBPNYRayi5JZMU3sWcWLTFAQXU/3lQk2FwSlBZh0CbJQGEGOL+9XWd7PjsU/TqnXsHJfbD8kga79uCNSfh9DtOF8cSPB1epkwevq4fuEitq9BGj3nloa7Ig0GIDx5uqFo+nGp0+Bu7MZfRwFGC/VXy5HHN077LNofyCqugY8mKh//FBnzmWmnAhfwseX5UwG4qWlCu99fhetyt6TiBosPwbNfZ5pAo8PSUI3d7QWDIGhneXJ4VOCmT6C6mQKDylKqNywoljp3g5q9lnYiv00n118PW9/TVbKQcUzhPJVLON9AFgKgsYMIX2YCRQqrVNqSK8NO/pFJT4zQSJrQcc+SQPo1QhlRCNHZCA/Hvqm5O39SRA30ybR1nKVN3Qnn6ahX6tof52mrvObQTtkmbL+Cc9M+LLQAQkrieYjNlFu2o1nnPQ+6DYwACHfmhcX+hoqvL2q/4HMn1Z6Xmn/YXGok0GBmOmg+DTn+iOUl+uCbLJWbdsuUPpuK6q2fW1hWVy6Ar1fDcxshDiwvOvV+zPBD/1jXAWv43G/fQpGByBFUfidqaPElXR/3K1cSas8SBy9JXhhKsSyrAX55gtXLQDe6Hsg1Wh7H4OPUIei5I09hsvQ3DD7Spj97OEZbY0sv86H65aOwfDp0/b7HUcmngQElYMc4x/+2ZXtK8PQ9JM3HU7sSewysrp2V9cOSI8V0OurkBOhmDxNHk8RF0Kk2uEdHcMOyGwOCe5svVXJxKHK9eQK8BAJKDgGy/YgT3DgXEM80++AZa7xvHnD5qcqiqqMOQdzMDDtiNRZEVW0xj512zFvCVLq/SIOU23AturIOxeu1sDHwxlT8SWBPEV/dCGiHsworC1CPt8YtLpJUirxiHZWSTu/RIF0+MmZZg05I8KlXXPbj3se42rKpVCqks/AAKJRIKrgbqaHzVZbNRQcY5wXTY+tn5q7XMJjuHvUGMPsAY7RaVD644GhMlMjX0eMEiVx5o5oK1HWmuDev+Pref3bHR/eWecOTImrYdC7Vkatxp5SAh6A5x8bH5l0Mvxm46bVI4qZBTQEUXv3H6EOO2m99tyAAAKGzGcU5I/rfvMl3222MPPKz7ftpdlsSfDrLuC6EBZUe4mUsNNmQyhO8RDr8fD9UNDaZw2opjkawlnkX8BU6geIP/UerTqmGfjWMEKzm9WI32uqTDzVpSeiXJZUzJDccvRIeOe4hfouEVdxXqgbBscJTDnLBHKy6WFMqmiPg2dn/A3Q69Gbnha4C0Mkcd1yMR1VxYCOZf3iVRSEMtVyg76nCAnap6VVu6VwWZqlFN9GYo/78te3lF0GhMODaxyswVxK5L5K1thezeqme7hvFMdYo3eSbwyZSdPGx1kOhfZEZSeKIbi93sGC2wGRj8KxSa00eufLrXSe44UXxmt4UOFDlRjSEt905RK6D8nN4Fm+9uYe9OKsQV9x73hItd63g7CYmQRgO1g542Q8umFnjxRTi2hIXklYKk+IFvnmqLechwHJcXtQ7ILmbIdsGD9umU7stmePbgah5YTp4kyJ2dSn+sOjc2DGojjE7W0c/UlvUoDm5Yh0o3gusbNWmClcyEKcvd+fgYdtsYXcg37wKBPSy4fR2F87axE+7rxf7bSgqQDxLokRomW1+dcjwTAnqPvwQx7oME/0DyEAC/60n4/1/KX9O5edDqYYL0oE04IHksCXhIz6ht+Bx7SskDQk/CMFcMZdniPEJIOChO7Xw9lYut16bMMwIhtu18se51z/adOGwU37wSTw8d9BTT11u4tVcaPPpsR8dM1G5tgkVqdhrfnaY/usEc56HW2gcpIM3Z0uc9II3ky/TYA5+SN5uYa0Spl+txfY8G4y9dzTMpesKHhZsphIpL8aT5PvPfcEBQQG7XgdUq6TwZPjbB7kfaPra6rDhfmcoHpralOZoWK8v8IykK2zQkwPPShfz/HMiJpm0YE7vr7G2obimg1FTDoK3VkxNZYyyUic0IlmJbOD67zDUqKLIOyI4GUJQaADRNQbTWeopEBj1ljU6ds0OYDEx15TYuIhQcf/NG2CRxOLTEjoF8mw7mV4t5f7e/ghDWoDvbI+1ZzTyYbCsnxfomjjU7uvRmdoUecQpvGIjPLFPqLsuSSpxmT1pMG5PANEI3HaYzYv7/fp+rQGPEWLhfsyG8szhYw9CTctxJThu3N2aGFpDVKxr0pMPf40jwDyKn1ObUaRGDk7B0N3mZNU72hgI5buVmbGoroOsXanb8Oi1/EARZwplFPTPCuqhO0ZgR+SCG7S10QU63l1SLNq7s6/iqBxMbbWQeiIgtFPqBLKQrG2lnK/TUUAHxJCnrz9XQ/PaTeM4nCaamr3HSUfLF9a83uTfgKLHkhYlPQLDlmXMK8c4zuiMtpbMBVzdp5S2DrD08MI3bvDB+ZgejHnd8q8b3MPueadMgJTuh2aSAAPY4Z6J7X0lFE8OcAKDNasR78fdfYePyK9qwkew1qVXSQkS3LJWTkK+h2cbF4fsb68ZlGRy5NkF/v6q+JVMxZ7hNp9CKYHXODC3OpqZ1uRF6Ph4HLw36TN3FPjgmFFzgvIyvoxLBUdEihBLjGpIytevFn1LxdaXlhE+AuivsAptw0pHUzQb/qPt7aPiXKeggWLgsyU/me4cALqjl1adRyhST9kjlw2Yk0h2ECJxvpP3L88SAbOO81ZduZhN9oVlyIgxHY/tqOkEnX/0uRDD9sNBwW71VAach48D7Bj3YigSDM/xmXhRzhBy7Cv3u9EeYxzwRMn2YunAViOBMILKH/zkF+NWvFeZoqcJ8hDhSlJ9/RXRatT2MRBkewXxzQVw6VJN+C9A2uA5XG7NM1ywJ3kcu0/QKdNZh+xcqsYk33xgZvnhPQonOP5qyzFel4hyWzw2h70WlinZR/JlfBkl+os3W4as6HzMbiOMsl4f8GobvgFwn9ybDEqQUEu7CDZ/A+OgFWHsJe89Pg1hZ2heDmLyUJoCkqFpaGtx63mqoRwvpq1rbb5vi8LYO2SGm2pFTLvJ4EZGF+kMahAJP3hD5Gd+K7mvEN1WUJ+zcthRvikAffm340Fcypvakq00XciDAzgzp/JEQsrloPIai5/anNQueUhCVcmYzeAWFcadgv5fwtpav3gYN/wq7r/l68u0H9M7dlf37F1hHxfq15gCxjo+DN6b4BwvIgkpnpKJ8dtekzol5HzIg7/FOVfk+Kcr7gSeuCBFAEzs29IONTLYeizM9X2cUZl+2YnmcBAxstSUduYyBI3eFHPn/GxpGAFP9TvL9L4XvnFkwvqQvf3lTFv+mig0+lYkzXxdotErUB7g46n1DaZrSgMdBVyepClMW+XDzojSXJ6Q82oBNJNMZJdJ6qhsOjr3VWP3UtAqIxV4WiY1rBvvr8MWyWE75jYagU+oJysdB2u9aetpo0c5e/BksCvLBff1f2s3sF44C4mi8AwwWKYb0Mg9F6C0EXuivP0ZDJPQY9okklJGTaKWIi6EyRjY4Is7BME8Rfmp5Bq0IrZ0+EhbfwmeRPhof2EzAL3220AQZ8Ke3oGcv63TpQbg68zCJICm1r6j/XSdFsrgjex6nHvrnXH10w5uKe01yadoBlJ8Fjt0aw7YVJfK8O1rRE8UFoZYF94j1P1BAho3gPF4c5InAvS3QDCgJ+cL77jEFGZZttCfMGZ8HxpctiYDAgrQyTBg5FfuDsDp5D7KRAqIj1qpW9VnLevwFjg74ny4A3buEvGczJowAiUv8v2IXJ9GaWCxpSCmGThzEwu22+g882GZWw/oJUQYqzKB7BV8ltGgPhsz9ALloJpkeOIjYy+D72j3w6k8IXFEJn6stpwh6EBFBdTNu6Uag+IpT71JlveKBHecL1c9OwmlsAjHCBYTvKkzDZYlyeXdKiojYJU5QKqBCk7VlGoewS434AIlIm+Cv73kCTjdScwNQ3ul8L6aojTa1lRiI8215hHdIZWanfM7oNN0CsigEuF1D4gmdYTTapikS+ZgHC03gU4n6Izab6xmSLVlNbjNtdP7RkbePGT36EOUiAJ7+popq66Nxjdo8ACDWH0nDbNoV6+/MYs5BSk74l1rzNavAlH74NRb3QxI3+t3YFPsm7qTDLpJFdqIMAnymysTErMAIwUDppzdCUe5Ny2p+/1uiaCeXYOdHcDBmOlE+ZMRLP1M22VrmwuKQMNUM4AFztSYU2ANP9QQRNG7UIx0Me7gubeLSdMK2zf40Aq+dXWQyv9DQF/44VStIpUwhFaG68UrT03fvwDtCNMwH0dH7zedtb2AglKL6jfQUK4AAG6rZlRmypw/8KbmuHYvttvahqLn9KpCUfoL5hWgGfp2QAFLh/8+GP0zmpe2bQU27opDcF0EO3XgEPdJAennwCipeorGlB1ugj8fKc7HyQwvymZTMyrS6BpTnysPKIYyjw3i+K1h71QGbXwDccGserwRnOD5PftpHNeCzyvamUqFq3EMkqH9eJnsNVMcZaqvnkZ+y1DXZsTgiI+53pcdftMKoQY5mbO5xHsHi2E3k9rnQyLeEnlL2XEAMM3Ws+EF9gALoV8xnPX0vWIyRPkh3SeysjnMuTY0Vgn9fQ/GdCI6Rtj3BNl7RxhLCDsK/8JDBAKUiV6HjU1GyfTxk9RjMddSR1ofo06GcPx/D5vAFQDsx7tJ+xuyQPmoR0OqDGDZeDjzd3m26GaOl0qb+7c/moJJP/1Vj7lrEtmoPmykwCFFRV2/eZDC4PXr+gdJoab+z08xFXb/Pg3D0aSicp2MGzBQeC813nI1cxfvAbld3w5Cge9i2zsMAsNSOAfjmWj3hLvhhTwHVyCs52S5N2DUm/YXqGNElf3OF3JEUdM1Z8ahb2YThObJaf+ATgbZHe4njJoOeFA4S1kQbAr2nAD/j8xPsZMkTuzVP43f2qB0IbZkeCgmBiw5yTEOcBlPQYxsjd0uSBSlmrY+VJUasFf2qb7O6xE7/iC/z4qbgG7ja+sQ+mWs3ZKfy+i+Oas6WepubhwimeLxYP8udkFTasMcCbI7fMMjusOj41gWPnvEEWE2UUrFSqwsijqHUFZ8EgGTZ0p8LnwtB8OGKZCRzPQsFbqk6EKld2jsLjIZ9AAr+LHbNFDX7py3+34guZiQBi8mP9JaSPGyIkTMJvNaICxCB0BkWwMB6YATxkvyin96iQ50CMCd6xYZW99zn/FxAadfyLUWZPIP7nmbzxRms6C890uxCxJch3xD1HYEkcpMrnNM3KUpGjLuoO0auTI0wT4FVtXsKhPLPoNSU9Et/mZ6feMMajBR9w75V+aqvVJsCAcQiy16trQzkPhMtJihxVZ0olhL0pGn1iyUXAAdNl42LJhtrw2YPNNvBsbm0CEF9TPQZRSAMXL+kiYiA1gIhSveOSII9y45QrqLre3oFfOPwy02TYPwEnvRtKsPd+aS9DD5pDH3TTPNgie4Mv9oKQlpon99oR1hbwDFiqvtT7SZcmj3wYwfuHqjN90qozqXoNcx3z3zBm1RcVU7zhx+x0cGcGYqnDPV3YB8dC1F2ZsZBoJlf8701FqcE0ncAAHB0A7BMwgEZ9Ik017SjsSXs3rxhwEJwWcSPXWNsaHmuL36OPPCqJRUhgMBqSS3WpEvJyzoTsdGq9y7O4g8TKrLO8+lxjUEKHW/RmHDQcW0WNBAXRQMUTwOvZAVKfOhafoqqyrhnO0wBw879Pe/TeM1nto9h37I2mRIzYp7/K75BwaVpQhMhsQj6lRoh3OW5NzL+eXQc8IOXN82F+aBjkGcu5jJW25THrE8sdQ3dRhb75cGpfZX+WmrYvTG4DFLV+M/ZGIT/bgGjZj5G/d/n8UDxaDWaTF1LzvZycGiVFmJJsyKfRzNfzGWbGSCDqLVCMhHKQqP6NDQmzi1YOuFtKRAKvLnju9yDVbvFTqDhc7qRLyTQZpvUM9GVgCzb/6zcD61L2X6GwjlZxJVaInTjL6augL9lvJIQkzKbGXt00+QkJJo2TTn5tMmvHqXdkZM/+luYnvxPNhz55AXw6mvnAlyYrLJt7pjIKftWGtDhHY3MW40u1JZQPGKNeE2d1yfnaCSrUm8nDISqjMe/ZHumJhJlTHkR3LpGFPU5Df/5XAAO7ZqxyUpy7WIhrjS64dUM/SHs8MPh9ph/hwvsrGBZO6uc0EkOwtj+HRDooN7B/fwR14ofWs8K+8JF1FLKojbR5aS+701CLY95u2Fo8oMwkdzpfahm6uHDO+6zXJwsCCbYTbm+OUUQJRdwTR3iPWEWik+nsi63qinv0KTGVqvOsH8ccTN/qI7CCsi/KotSwtWeQxpROZ2FFb1RghuJE6ZyeFwAAgLwC7TnAS4Ht8hsu5r+CD2e1WXfd2DVxSCL9tO0k0Ra4Q6zzgOmd7wPk0U2g2zxt6bbRthvh6eugGSTRu3nsqqQ11Y7vOU32d8lioUSWrnqaNsGxkLIEv2mWVB5CMa05AyXuD0Z43W0kpFDoCy1z/Yl0+iz6gBSSoAGj2GZIPix51gpYX6o6lCRan86ZVrSvb5YsZjG+I/7T2yz7N5NiIsgYL8RTosGAkM93sRU+nIxrIAAPz2AsbFTag0WeIBPfijEcSpFU3AelWu/OQvpYpXLurKLp0IJpAY92+XYi0QIPVypMT9KaBBW5hP9Kvs7oq+RNeKan7f6eaHWEqabClWWleTKmh1A5VC2oI586ub9Ub3tlOKZleT6fCMjr2vW+VwZXQnV1pTCakfQEsznVGs3YyNH4x2h6/hmj7zXrOaLh3PFZZ2682qKq2T1VMvJxKmJHBlybQwmH7+dfU1S24xipGOTxCBvXLpemFArIhVsXZzUAc0Cov/NS3Keer+uMY1OkpOKiq2KrNENlGZHxOAJezxcm0+jhfIF4ta4lzMi67b0P/Y94qng3m1uwC/AD2hdA/nlbZzBLOJA9tBoL4vuOul0e4utl1IuzvF9gqsZVXCkZ6ueS/n7pUQwEJ5Z8+PKBBUNwFC77pNK1quHvUHnn9Hp4qki5yCPsgM6+ztJYl7YMKn5YJuTy9gD/zOoSmkC81hl8bNAYJZ/Pl7WJiDJvenlFyI+J7g1oV2kXX/UgHAaTIsSbv7cYbxC1TFM4sl//ZFh6HBGoCp85YO4tO3dFsid/QtZw0rmHHSmMowFp5rUcVn//Cn1jsBNri8bqQSWGtTzw6ELvJFVsiTd9rtofH1obhS3DYa++YaOPPlCpm3yYoSKPIPo5iMZUi515Xl6q8zCfG7Pb31GwaEvzJN5fB4px4X6ZRmzf0rgThoKTepnW3nUpeg7HxukzlEhClhKJRJWAj+AEYdbqUGbFfYiv9sxY4G5CMnABn9q4kc7M/z7CXD4dnmykBSBfYaLA703R1XWfzrY9c60UtfDNDvIrA/sFTVrT+raFggK+N7qYvxzQ9IUW4XHXBoBaHxlDgUQP3nmUrfGAE/U8aWITyxJ+UA3vVhlNYJQ3bSxGFv675mmzlbi9EO2PtCMiWU/HZww14xcNC/WIwBCiqfeAVVxcUsmYtdTgP0Q9h2Eg+LNeJmeaD9g6E7CO5N7qgcAAAAAAAC5vGMAuSAAAA==" alt="LMC Remote — Room tab with TCL TV, Sonos, and Lights" loading="eager">
+          </div>
+          <div class="phone-tab">Room</div>
         </div>
-        <div class="screen-wrap secondary">
-          <img src="assets/screenshot-media.png" alt="LMC Remote — Media PC tab showing launcher, playback, and trackpad" loading="lazy">
-          <div class="screen-label">Media PC tab</div>
+        <div class="phone-outer secondary">
+          <div class="phone-frame">
+            <img src="data:image/webp;base64,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" alt="LMC Remote — Media PC tab with launcher and controls" loading="eager">
+          </div>
+          <div class="phone-tab">Media PC</div>
         </div>
       </div>
     </div>
@@ -226,24 +256,24 @@ footer{border-top:1px solid var(--border2);padding:36px 0;}
     <div class="section-head">
       <div class="section-eyebrow">Two builds, one codebase</div>
       <h2>Pick the one that fits your setup.</h2>
-      <p class="section-sub">LMC Remote is the full-room build with TV, speaker, and lighting control built in. Media Remote is the leaner PC-only version — same glassy UI, just the PC controls.</p>
+      <p class="section-sub">LMC Remote is the full-room build with TV, speaker, and lighting control. Media Remote is the leaner PC-only version — same UI, just the PC controls.</p>
     </div>
     <div class="product-grid">
 
       <div class="product-card featured">
         <div class="product-badge badge-lmc">⬡ LMC Remote — Full room</div>
         <h3>Everything, in one app.</h3>
-        <p>The default screen is your Room — TCL TV, Sonos speakers, smart lighting, and one-tap scene control. Swipe over for the full PC remote when you need it.</p>
+        <p>The default screen is your Room — TCL TV, Sonos speakers, smart lighting, and one-tap scene control. Swipe over for the full PC remote.</p>
         <ul class="feature-list">
-          <li><b>TCL Google TV</b> over ADB Wireless Debugging — d-pad, volume, source switching, Gemini, and streaming app shortcuts</li>
-          <li><b>mDNS auto-discovery</b> — finds the TV's live IP automatically, even after it changes on Wi-Fi reconnect</li>
-          <li><b>Sonos</b> volume + mute with a multi-speaker picker — finds every speaker on the network</li>
+          <li><b>TCL Google TV</b> — d-pad, power, volume, source switching, Gemini, streaming shortcuts</li>
+          <li><b>mDNS auto-discovery</b> — finds the TV's live IP automatically, even after reconnects</li>
+          <li><b>Sonos</b> — volume + mute with a multi-speaker network picker</li>
           <li><b>Shelly Wall Dimmer</b> — brightness slider, quick presets, integrated into scenes</li>
-          <li><b>Movie Night / Easy Listening</b> — one-tap scene buttons with independent Sonos + TV audio toggles</li>
-          <li><b>Unified backup</b> — one JSON file covers all Room config and PC shortcuts together</li>
-          <li><b>Installable PWA</b> — add to your phone's home screen with a proper app icon</li>
+          <li><b>Movie Night / Easy Listening</b> — one-tap scenes with independent audio toggles</li>
+          <li><b>Unified backup</b> — one JSON covers all Room config and PC shortcuts</li>
+          <li><b>Installable PWA</b> — real home-screen icon, not a browser bookmark</li>
         </ul>
-        <a href="assets/LMCremote.zip" class="btn-primary" style="font-size:14px;padding:13px 22px;">
+        <a href="assets/LMCremote.zip" class="btn-primary" style="font-size:14px;padding:12px 22px;">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
           Download LMC Remote
         </a>
@@ -252,17 +282,17 @@ footer{border-top:1px solid var(--border2);padding:36px 0;}
       <div class="product-card">
         <div class="product-badge badge-mr">▶ Media Remote — PC only</div>
         <h3>Just the PC remote.</h3>
-        <p>The original build — a dark, glassy remote for your Windows media PC. No TV or speaker control, but everything you need for Kodi, streaming apps, keyboard, trackpad, and screen mirroring.</p>
+        <p>A dark, glassy remote for your Windows media PC — no TV or speaker control, everything else included.</p>
         <ul class="feature-list">
           <li><b>App launcher</b> — 10 default presets + unlimited custom shortcuts with icon upload</li>
-          <li><b>Kodi integration</b> — real seek bar with live position, jump to timestamp, shuffle/repeat</li>
-          <li><b>10s / 30s skip</b> — arrow-key based, works with Netflix, Prime, YouTube</li>
+          <li><b>Kodi</b> — real seek bar with live position, jump to timestamp, shuffle/repeat</li>
+          <li><b>10s / 30s skip</b> — works with Netflix, Prime, YouTube via arrow keys</li>
           <li><b>Trackpad + keyboard</b> — full mouse and text input from your phone</li>
-          <li><b>Screen mirror</b> — PC desktop to phone via WebRTC, phone requests with one-tap PC approval</li>
+          <li><b>Screen mirror</b> — PC desktop to phone via WebRTC</li>
           <li><b>Copilot + Voice Access</b> — direct AUMID launch, bypasses Win+C redirection</li>
-          <li><b>Export customized build</b> — hide presets you don't want for different users/rooms</li>
+          <li><b>Export customized build</b> — hide presets for different users or rooms</li>
         </ul>
-        <a href="assets/mediaremote.zip" class="btn-secondary-dl" style="font-size:14px;padding:13px 22px;">
+        <a href="assets/mediaremote.zip" class="btn-secondary-dl" style="font-size:14px;padding:12px 22px;">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
           Download Media Remote
         </a>
@@ -273,49 +303,42 @@ footer{border-top:1px solid var(--border2);padding:36px 0;}
 
   <!-- ══ LMC Features ══ -->
   <section class="border-top" id="features">
-    <div class="section-head">
-      <div class="section-eyebrow">LMC Remote — what's new</div>
+    <div class="section-head centered">
+      <div class="section-eyebrow">LMC Remote — what shipped</div>
       <h2>The whole room, not just the PC.</h2>
-      <p class="section-sub">Everything that shipped in the LMC build on top of the Media Remote foundation.</p>
+      <p class="section-sub">Everything new in the LMC build on top of the Media Remote foundation.</p>
     </div>
     <div class="feat-grid">
-
       <div class="feat-card">
         <div class="feat-icon fi-tv">📺</div>
         <h3>TCL Google TV over ADB</h3>
-        <p>Full d-pad navigation, power, volume, mute, HDMI source switching, and a Gemini assistant button — all over ADB Wireless Debugging. Plus built-in quick-launch for Netflix, Prime, Hulu, and YouTube, and 4 customizable slots for any other Android app by package name.</p>
+        <p>Full d-pad, power, volume, mute, HDMI source switching, and a Gemini button — all over ADB Wireless Debugging. Quick-launch for Netflix, Prime, Hulu, YouTube, plus 4 customizable slots by Android package name.</p>
       </div>
-
       <div class="feat-card">
-        <div class="feat-icon fi-tv" style="background:rgba(99,102,241,.12);">🔍</div>
+        <div class="feat-icon fi-disc">🔍</div>
         <h3>mDNS auto-discovery</h3>
-        <p>Finds the TV's live IP address and ADB port automatically over mDNS — even after it changes, which happens every time the TV reconnects to Wi-Fi. No more reading the IP off the TV settings screen and pasting it in manually.</p>
+        <p>Finds the TV's live IP and ADB port automatically — even after it changes on Wi-Fi reconnect. No more reading the IP off the TV settings screen and typing it in manually every time.</p>
       </div>
-
       <div class="feat-card">
         <div class="feat-icon fi-sonos">🔊</div>
         <h3>Sonos control</h3>
-        <p>Volume slider and mute for any Sonos speaker on the network. Includes a multi-speaker picker that discovers every available speaker — so you're always controlling the right room, not guessing which one it grabbed.</p>
+        <p>Volume slider and mute for any Sonos speaker on the network. A multi-speaker picker discovers every available speaker so you're always controlling the right room.</p>
       </div>
-
       <div class="feat-card">
         <div class="feat-icon fi-lights">💡</div>
         <h3>Shelly Wall Dimmer</h3>
-        <p>Brightness slider, quick preset levels (Off / 10% / 20% / 50%), and full integration into scene automation — Movie Night can auto-dim or shut off the light, Easy Listening sets it to a fixed level, all from one tap.</p>
+        <p>Brightness slider, quick preset levels (Off / 10% / 20% / 50%), and full scene integration — Movie Night can auto-dim or cut the light, Easy Listening sets a fixed level, all from a single tap.</p>
       </div>
-
       <div class="feat-card">
         <div class="feat-icon fi-scene">🎬</div>
-        <h3>Movie Night & Easy Listening</h3>
-        <p>One-tap scene buttons at the top of the Room tab. Each scene has independent toggles for Sonos mute and TV audio — so you can pause just the speakers, just the TV, or both. No complex automation config required.</p>
+        <h3>Movie Night &amp; Easy Listening</h3>
+        <p>One-tap scene buttons at the top of the Room tab. Independent toggles for Sonos mute and TV audio per scene — pause just the speakers, just the TV, or both. No automation config required.</p>
       </div>
-
       <div class="feat-card">
         <div class="feat-icon fi-pwa">📱</div>
-        <h3>Installable PWA</h3>
-        <p>Add to your phone's home screen as a real Progressive Web App with a proper app icon — not a generic browser bookmark badge. Works on Android and iOS. The icon and app name show up exactly as you'd expect from a native app.</p>
+        <h3>Installable PWA + unified backup</h3>
+        <p>Add to your phone's home screen as a real app with a proper icon — not a browser bookmark. One JSON export covers all Room config and PC shortcuts together, so nothing gets left behind.</p>
       </div>
-
     </div>
   </section>
 
@@ -330,7 +353,7 @@ footer{border-top:1px solid var(--border2);padding:36px 0;}
       <div class="step">
         <div class="step-num">1</div>
         <h3>Download &amp; unzip</h3>
-        <p>Drop the folder anywhere on the media PC — <code>MediaRemote.exe</code> and <code>Setup.bat</code> just need to stay together.</p>
+        <p>Drop the folder anywhere on the media PC. <code>MediaRemote.exe</code> and <code>Setup.bat</code> just need to stay together.</p>
       </div>
       <div class="step">
         <div class="step-num">2</div>
@@ -340,16 +363,16 @@ footer{border-top:1px solid var(--border2);padding:36px 0;}
       <div class="step">
         <div class="step-num">3</div>
         <h3>Open on your phone</h3>
-        <p>The tray icon shows your PC's address on hover. Open it in any browser — or install it as a PWA for the full home-screen experience.</p>
+        <p>The tray icon shows your PC's address on hover. Open it in any browser — or install it as a PWA for the real home-screen experience.</p>
       </div>
     </div>
   </section>
 
-  <!-- ══ Final CTA ══ -->
+  <!-- ══ CTA ══ -->
   <section class="border-top">
     <div class="cta-box" id="downloads">
       <h2>Pick your build.</h2>
-      <p class="section-sub">Both are free, self-hosted, and stay entirely on your local network. LMC adds the room — TV, speakers, and lighting alongside the full PC remote.</p>
+      <p class="section-sub">Both are free, self-hosted, and stay on your local network. LMC adds the room — TV, speakers, and lighting alongside the full PC remote.</p>
       <div class="cta-actions">
         <a href="assets/LMCremote.zip" class="btn-primary">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
@@ -360,7 +383,7 @@ footer{border-top:1px solid var(--border2);padding:36px 0;}
           Media Remote only
         </a>
       </div>
-      <p class="cta-note">Both builds · Windows 10/11 · Local network only · LAZLAB Creations</p>
+      <p class="cta-note">Windows 10/11 · Local network only · © 2026 LAZLAB Creations</p>
     </div>
   </section>
 
